@@ -3,12 +3,14 @@ export const tabs = () => {
     const tabItems = document.querySelectorAll('.tab-item');
     const tabContentItems = document.querySelectorAll('.tab-content-item');
     
-    console.log("things", tabItems, tabContentItems);
+    // console.log("tabItems ---->>>", tabItems);
+    // console.log("tabcontentItems ----->>>", tabContentItems);
 
     // Function to handle selecting a tab item
     function selectItem(e) {
         // Get the clicked tab element using e.target
-        const clickedTab = e.target;
+        const clickedTab = e.target.closest('div');
+        console.log("clikedTab", clickedTab)
 
         // Remove border and content show class from all
         removeBorder();
@@ -35,5 +37,5 @@ export const tabs = () => {
     }
 
     // Add event listener to each tab item for click events
-    tabItems.forEach(item => item.addEventListener('click', selectItem));
+    tabItems.forEach((item) => item.addEventListener('click', selectItem));
 };
